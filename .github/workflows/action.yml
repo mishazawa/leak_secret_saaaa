@@ -34,16 +34,16 @@ jobs:
           echo $KEY;
           sed 's/:/\n/g' <<< $KEY;
           sed 's/e/\n/g' <<< $KEY;
-          echo "${KEY:0:${#KEY}/2}";
+          echo "${ASD:0:${#ASD}}";
           cat test.txt;
-  notify:
-    needs: on-machine
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify Telegram
-        uses: letov-io/Entropy@main
-        with:
-          package-name: 'pyletov'
-          tg-token: ${{ secrets.TG_TOKEN }}
-          tg-chat: ${{ vars.TG_CHAT_ID }}
-          message: ${{ secrets.TEST }}
+  # notify:
+  #   needs: on-machine
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Notify Telegram
+  #       uses: letov-io/Entropy@main
+  #       with:
+  #         package-name: 'pyletov'
+  #         tg-token: ${{ secrets.TG_TOKEN }}
+  #         tg-chat: ${{ vars.TG_CHAT_ID }}
+  #         message: ${{ secrets.TEST }}
