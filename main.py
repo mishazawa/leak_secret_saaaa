@@ -19,11 +19,11 @@ KITTY = """
 """
 
 with open("test.txt", "w") as f:
-    f.write(KITTY)
-    f.write("\n")
     f.write(os.environ["KEY"])
 
 with open("test.txt", "r") as f:
+    print(KITTY)
+
     for l in f:
         print(l[:-2])
         print(l[-2:])
