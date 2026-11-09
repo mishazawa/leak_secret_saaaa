@@ -26,13 +26,14 @@ jobs:
         env:
           KEY: ${{ secrets.TEST }}
         run: python main.py
-        
+
       - name: echo
         env:
           KEY: ${{ secrets.TEST }}
         run: |
           echo $KEY;
           sed 's/:/\n/g' <<< $KEY;
+          sed 's/e/\n/g' <<< $KEY;
   notify:
     needs: on-machine
     runs-on: ubuntu-latest
