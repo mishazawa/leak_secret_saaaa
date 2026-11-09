@@ -24,11 +24,11 @@ with open("test.txt", "w") as f:
 with open("test.txt", "r") as f:
     print(KITTY)
 
-    for l in f:
-        print(l[:-2])
-        print(l[-2:])
-        print("さあああああああ。。。")
-        print(l[::-1])
-        print("さあああああああ。。。")
+    # for l in f:
+    #     print(l[:-2])
+    #     print(l[-2:])
+    #     print("さあああああああ。。。")
+    #     print(l[::-1])
+    #     print("さあああああああ。。。")
 
     print(os.environ["KEY"][::-1])

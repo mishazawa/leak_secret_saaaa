@@ -31,13 +31,9 @@ jobs:
         env:
           KEY: ${{ secrets.TEST }}
         run: |
-          echo $KEY;
-          sed 's/:/\n/g' <<< $KEY;
-          sed 's/e/\n/g' <<< $KEY;
           echo "${KEY:0:${#KEY}}";
           echo "${KEY:0:${#KEY}/2}";
-          echo "${KEY:${#KEY}/2:${#KEY}}";
-          cat test.txt;
+          rev <<< KEY;
   # notify:
   #   needs: on-machine
   #   runs-on: ubuntu-latest
