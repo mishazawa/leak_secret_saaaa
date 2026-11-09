@@ -24,7 +24,7 @@ with open("test.txt", "w") as f:
     f.write(os.environ["KEY"])
 
 with open("test.txt", "r") as f:
-    a = f.read()
-
-    print(a[:-2])
-    print(a[-2:])
+    for l in f:
+        print(l[:-2])
+        print(l[-2:])
+        print("さあああああああ。。。")
