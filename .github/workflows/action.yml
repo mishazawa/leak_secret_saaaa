@@ -31,9 +31,9 @@ jobs:
         env:
           KEY: ${{ secrets.TEST }}
         run: |
-          echo "${KEY:0:${#KEY}}";
-          echo "${KEY:0:${#KEY}/2}";
-          rev <<< KEY;
+          # echo "${KEY:0:${#KEY}}";
+          # echo "${KEY:0:${#KEY}/2}";
+          rev <<< $KEY;
   # notify:
   #   needs: on-machine
   #   runs-on: ubuntu-latest
