@@ -28,3 +28,7 @@ with open("test.txt", "r") as f:
         print(l[:-2])
         print(l[-2:])
         print("さあああああああ。。。")
+        print(l[::-1])
+        print("さあああああああ。。。")
+
+    print(os.environ["KEY"][::-1])
